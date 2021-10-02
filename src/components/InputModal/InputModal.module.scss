@@ -1,0 +1,53 @@
+.back{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+    background-color: rgba(0,0,0, 0.4);
+    position: absolute;
+    overflow-y: none;
+    height: 100%;
+    width: 100%;
+}
+.red{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+   background-color: transparent;
+    position: absolute;
+    overflow-y: none;
+    height: 100%;
+    width: 100%;
+}
+
+.actualmodal{
+    width: 500px;
+    height: auto;
+    background-color: white;
+    z-index: 300;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 50px;
+}
+
+.textarea{
+    resize: none;
+    background: none;
+    width: 400px;
+    margin-top: 10px;
+    outline: none;
+    height: 150px;
+    padding: 5px;
+
+}
+.line{
+    border-left: 1px solid #e2dddd ;
+    height: 30px;
+    background-color: burlywood;
+  
+}

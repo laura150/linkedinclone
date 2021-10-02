@@ -1,0 +1,8 @@
+export const REGISTER_START = 'REGISTER_START'
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
+export const REGISTER_FAIL = 'REGISTER_FAIL'
+
+export const SIGNIN_START = 'SIGNIN_START'
+export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS'
+export const SIGNIN_FAIL = 'SIGNIN_FAIL'
+export const LOGOUT = 'LOGOUT'

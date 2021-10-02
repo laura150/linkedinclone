@@ -1,0 +1,97 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 10px;
+}
+a{
+   text-decoration: none; 
+}
+
+.navimgbox{
+    width: 100px;
+  margin-top: 2px;
+
+}
+
+.left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 180px;
+
+
+}
+
+.signin{
+    border: 1px solid rgb(45, 112, 226);
+    padding: 5px 20px;
+    border-radius: 100px;
+    color: rgb(45, 112, 226);
+    cursor: pointer;
+}
+.signin:hover{
+    transform: scale(1.0.5);
+    transition: 0.3s;
+    border: dotted rgb(45, 112, 226);
+    color: black;
+}
+
+.hero{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 70px;
+}
+
+.herotext{
+   
+    width: 80%;
+    font-weight: 500;
+    font-size: 40px;
+    margin-top: 20px;
+    color: rgb(45, 112, 226);
+    
+}
+
+.heroimg{
+    width: 500px;
+   
+}
+
+.joinnow:hover{
+    background-color:rgb(157, 151, 151);
+    padding: 8px 11px;
+    transition: 0.3s ;
+    border-radius: 50px;
+   
+
+}
+
+// .options{
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+//     justify-content: center;
+//     display: flex;
+//     text-align: center;
+//     font-size: 20px;
+//     text-align: center;
+//     border: 1px solid black;
+//     width: 70%;
+//     margin-top: 100px;
+//     border-radius: 200px;
+//     cursor: pointer;
+    
+// }
+.google:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    border: dotted rgb(45, 112, 226);
+    color: black;
+}
+
+.google a{
+    color: rgb(45, 112, 226);
+}
