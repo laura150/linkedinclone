@@ -68,7 +68,7 @@ const Home = () => {
                             </div>
                             <div className={`${styles.box} w-24 flex justify-center items-center py-2 rounded-lg cursor-pointer mb-2 mt-2 px-4`}>
                                 <img src='images/video.png' width='30' className={styles.icon}/>
-                                <p className='ml-1'>Articles</p>
+                                <p className='ml-1'>Events</p>
                             </div>
                         </div>
                     </div>
