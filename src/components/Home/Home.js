@@ -7,7 +7,7 @@ import InputModal from '../InputModal/InputModal'
 import Leftwing from '../Leftwing/Leftwing'
 import Rightwing from '../Rightwing/Rightwing'
 import {db} from '../../firebase'
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, where, orderBy, onSnapshot } from "firebase/firestore";
 
 
 const Home = () => {
@@ -21,8 +21,8 @@ const Home = () => {
     }
    
     useEffect(() => {
-        const q = query(collection(db, "posts"), where("name", "==", "Ada"))
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const q = query(collection(db, "posts"), orderBy("timestamp", "desc")) //this q listens for changes
+        const unsubscribe = onSnapshot(q, (querySnapshot) => { //this is acallback function. anytime the q changes , the function next to it will run again and then the setpost will update the state which will then change the view
             let arr = []
           querySnapshot.forEach((doc) => {
               console.log(doc.data().description);
@@ -33,7 +33,7 @@ const Home = () => {
         });
         
      
-      return () => {
+      return () => { //this is to make the unsubcrive function stop working when we leave the page, that is clean it up to avaoid memory leaks
         unsubscribe()
       }
   }, [])

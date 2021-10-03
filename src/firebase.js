@@ -29,7 +29,7 @@ const firebaseConfig = {
   //   return cityList;
   // }
 
-  export {auth, googleAuthProvider, facebookAuthProvider, db}
+  export {auth, googleAuthProvider, facebookAuthProvider, db, storage}
 
  
 

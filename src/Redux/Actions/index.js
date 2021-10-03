@@ -2,7 +2,7 @@
  import {REGISTER_SUCCESS} from '../ActionTypes'
  import {REGISTER_FAIL,LOGOUT} from '../ActionTypes'
  import { auth} from '../../firebase'
- import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from 'firebase/auth'
+ import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth'
  
  const registerstart = () =>({
     type: REGISTER_START
@@ -30,20 +30,12 @@
          createUserWithEmailAndPassword(auth, email, password)
          .then(({user})=> {
             dispatch(registersuccess(user))
-            //  updateProfile(user,{
-            //     displayName: `${firstname} ${lastname}`,
-            // }).then(({profile})=>{
-                
-            // }).catch((error)=>{
-            //     dispatch(registerfail(error.message))
-            // })
-            
          })
          .catch((error)=>{
             dispatch(registerfail(error.message))
         })
-     }
- }
+     
+ }}
 
 
  const signinstart = () =>({
@@ -70,13 +62,6 @@
          signInWithEmailAndPassword(auth, email, password)
          .then(({user})=> {
             dispatch(signinsuccess(user))
-            //  updateProfile(user,{
-            //     displayName: `${firstname} ${lastname}`,
-            // }).then(({profile})=>{
-                
-            // }).catch((error)=>{
-            //     dispatch(registerfail(error.message))
-            // })
             
          })
          .catch((error)=>{
@@ -84,6 +69,65 @@
         })
      }
  }
+
+
+export const googlesignin = ()=>{
+   return function (dispatch){
+   dispatch(signinstart())
+   signInWithPopup(auth, new GoogleAuthProvider())
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    dispatch(signinsuccess(user))
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    dispatch(signinfail(errorMessage))
+    // ...
+  });
+}
+}
+
+
+export const facebooksignin = ()=>{
+   return function (dispatch){
+   dispatch(signinstart())
+   signInWithPopup(auth, new FacebookAuthProvider())
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    dispatch(signinsuccess(user))
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = FacebookAuthProvider.credentialFromError(error);
+    dispatch(signinfail(error.message))
+    // ...
+  });
+}
+}
+
+
+
+
+
 
 
 

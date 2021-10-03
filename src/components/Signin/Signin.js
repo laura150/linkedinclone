@@ -3,7 +3,7 @@ import styles from './Signin.module.scss'
 import {useSelector, useDispatch} from 'react-redux'
 import {useState, useEffect} from 'react'
 import {useHistory, Link} from 'react-router-dom'
-import {signininitiate} from '../../Redux/Actions/'
+import {signininitiate, facebooksignin, googlesignin } from '../../Redux/Actions/'
 
 const Signin = () => {
     const dispatch = useDispatch()
@@ -23,9 +23,13 @@ const Signin = () => {
         setState({firstname:'', lastname:'',email:'', password:'', })
       }
 
-      const signwithGoogle = ()=>{}
+      const signwithGoogle = (e)=>{
+        dispatch(googlesignin())
+      }
 
-      const signwithFacebook = ()=>{}
+      const signwithFacebook = (e)=>{
+        dispatch(facebooksignin())
+      }
 
 
       const handleChange = (e)=>{
@@ -61,11 +65,12 @@ const Signin = () => {
                           <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='password' name='password' value={password} onChange={handleChange}/> 
                       </div>
   
-                      <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithGoogle}>Sign in with google</button>
-                      <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithFacebook}>Sign in with facebook</button>
-                      <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithFacebook}>Sign in </button>
+                      
+                      <button className='border-2 py-2 w-56 text-center m-auto'>Sign in </button>
                       <hr/>
                   </form>
+                  <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithGoogle}>Sign in with google</button>
+                      <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithFacebook}>Sign in with facebook</button>
 
                   <p>Dont have an account?</p>
                  <a href='/register'><button>Register</button></a>

@@ -1,9 +1,12 @@
 import { IconButton } from '@material-ui/core'
 import { PlusOneRounded } from '@material-ui/icons'
+import {useSelector, useDispatch} from 'react-redux'
 import React from 'react'
 import styles from './Leftwing.module.scss'
 
 const Leftwing = () => {
+
+    const {currentUser} = useSelector((state)=> state.user)
     return (
        
         <div className={styles.container}>
@@ -12,7 +15,7 @@ const Leftwing = () => {
             </div>
 
             <div className={`${styles.imgbox} absolute `}>
-                <img src ='/images/girlie.jpg' width='100' className=''/>
+                <img src ={currentUser.photoURL} width='100' className=''/>
             </div>
 
             <div className='text-center mt-12'>

@@ -18,13 +18,15 @@ const Header = () => {
         dispatch(logout())
     }
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if(!currentUser){
-    //         history.push('/signin')
-    //     }
+        if(!currentUser){
+            history.push('/signin')
+        }
 
-    // }, [currentUser, history])
+
+    }, [currentUser, history])
+
     return (
             <div className={`${styles.container}`}>
                 <div className={`${styles.header}  m-auto  flex justify-between pt-2`}>
@@ -63,10 +65,10 @@ const Header = () => {
                                 <p>Notifications</p>
                             </div>
                             <div  className={`${styles.me} flex relative  items-center flex-col text-gray-600`}>
-                                <img src ='/images/user.svg' width='25'/>
+                                <img src ={currentUser.photoURL} width='25'/>
                                 <div className='flex justify-center'>
                                     <p>Me</p>
-                                    <img src ='/images/down-icon.svg' width='20'/>
+                                    {/* <img src ={currentUser.photoURL} width='20'/> */}
                                 </div>
 
                                 <div className={`${styles.signout} flex-none bg-white absolute w-20 hidden text-center top-9 py-4 px-4 rounded-md `} onClick={handleLogout}>

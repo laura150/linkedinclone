@@ -42,7 +42,7 @@ console.log(modal)
           console.log('clicked')
         try {
             const docRef = await addDoc(collection(db, "posts"), {
-                name: "Ada",
+                name: "Laura",
                 description: type,
                 timestamp: Timestamp.fromDate(new Date())
             });
