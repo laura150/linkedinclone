@@ -22,11 +22,11 @@ const LandingPage = () => {
 
              <div className={styles.hero}>
                  <div className={styles.herotext} data-aos='zoom-in-right' data-aos-duration="1000">
-                     <p className=''>Welcome to your Professional community</p>
+                     <p className={styles.text}>Welcome to your Professional community</p>
                      <div className={`${styles.options} text-lg text-gray-700`}>
-                        <a href='/home'><div className='py-4 w-56 border-4 border-blue-700  mt-8 text-center'>Search For a job</div></a>
-                        <a href='/home'><div className='py-4 w-56 border-4 border-blue-700  mt-8 text-center'>Find a person you know</div></a>
-                        <a href='/home'><div className='py-4 w-56 border-4 border-blue-700  mt-8 text-center'>Learn a skill</div></a>
+                        <a href='/home'><div className='py-4  border-4 border-blue-700  rounded-full  mt-8 text-center'>Search For a job</div></a>
+                        <a href='/home'><div className='py-4  border-4 border-blue-700  rounded-full  mt-8 text-center'>Find a person you know</div></a>
+                        <a href='/home'><div className='py-4  border-4 border-blue-700  rounded-full  mt-8 text-center'>Learn a skill</div></a>
                      </div>
                  </div>
 

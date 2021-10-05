@@ -7,6 +7,7 @@ import styles from './Leftwing.module.scss'
 const Leftwing = () => {
 
     const {currentUser} = useSelector((state)=> state.user)
+    console.log(currentUser)
     return (
        
         <div className={styles.container}>
@@ -15,11 +16,18 @@ const Leftwing = () => {
             </div>
 
             <div className={`${styles.imgbox} absolute `}>
-                <img src ={currentUser.photoURL} width='100' className=''/>
+            {currentUser? 
+                <img src ={currentUser.photoURL} width='25'/>:
+                <img src ='/images/user.svg' width='25'/>
+            }
             </div>
 
             <div className='text-center mt-12'>
-                <p className='font-normal'>Laura Eguda</p>
+            {currentUser? 
+                <p>{currentUser.displayName}</p> :
+               null
+            }
+            
                 <p className='text-xs text-gray-600 mt-1 mb-4'>Software Developer</p>
             </div>
             <hr></hr>

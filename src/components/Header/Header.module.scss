@@ -3,16 +3,19 @@
     background: white;
     top:0;
     left: 0;
-    z-index: 100;
+    z-index: 1000;
     border-bottom: 1px solid rgb(0,0,0,0.08);
     width:100%;
     padding:0 24px;
+   
 }
 .header{
-    width: 90%;
+    max-width: 1100px;
+
+    justify-content: space-between;
 }
 .searchdiv{
-    background-color: pink;
+    background-color: rgba(212, 211, 235, 0.863);
 }
 .normal{
     display: flex;
@@ -43,6 +46,10 @@
     cursor: pointer;
 }
 
+.search{
+    display: none;
+}
+
 .me:hover{
     .signout{
         display: block;
@@ -53,9 +60,46 @@
 @media screen and (min-width: 1500px) {
     .header{
         width: 100%;
-        max-width: 1200px;
+        max-width: 1100px;
         margin-right: auto;
         margin-left: auto;
     }
 }
    
+@media screen and (max-width: 1148px) {
+
+    .header{
+       width:900px ;
+     }
+ 
+ }
+
+ @media screen and (max-width: 940px) {
+    .header{
+       width:850px ;
+     }
+
+     .headeroptions{
+         display:none;
+     }
+
+     .leftnav{
+        
+     }
+
+     .header{
+        justify-content:space-around;
+     }
+ 
+ }
+ @media screen and (max-width: 856px) {
+    .search{
+        display: block;
+        width: 30px;
+    }
+
+    .searchdiv{
+        display: none;
+    }
+ }
+ 

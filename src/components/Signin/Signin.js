@@ -52,28 +52,34 @@ const Signin = () => {
                  <img src='/images/login-logo.svg' width='150' />
              </div></a>
   
-             <p className='text-center text-3xl text-gray-700  mt-8'>Make the most of you're professional life</p>
+             <p className='text-center sm:text-3xl text-2xl  text-gray-700  mt-8'>Make the most of you're professional life</p>
   
-             <div className='bg-white w-96 m-auto mt-6 px-8 py-4 '>
+             <div className={`${styles.form} bg-white w-96 m-auto mt-6 px-8 py-4`}>
                   <form className='text-gray-700' onSubmit={handleSubmit}>
                       <div className=''>
-                          <p className='mb-1'> Email/Phone Number</p>
-                          <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='email' name='email' value={email} onChange={handleChange} /> 
+                          <p className='my-1  text-sm '> Email/Phone Number</p>
+                          <input className=' w-full py-1 border outline-none rounded-md px-1 ' placeholder='' type='email' name='email' value={email} onChange={handleChange} /> 
                       </div>
                       <div>
-                          <p className='mb-1'>Password (6 or more characters)</p>
-                          <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='password' name='password' value={password} onChange={handleChange}/> 
+                          <p className='my-1 text-sm  mt-4'>Password (6 or more characters)</p>
+                          <input className=' w-full py-1 border outline-none rounded-md px-1' placeholder='' type='password' name='password' value={password} onChange={handleChange}/> 
                       </div>
   
                       
-                      <button className='border-2 py-2 w-56 text-center m-auto'>Sign in </button>
-                      <hr/>
+                      <button className='border-2 py-2 w-56 text-center flex justify-center mb-4 m-auto text-white mt-4 bg-blue-700 rounded-full'>Sign in </button>
+            
                   </form>
-                  <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithGoogle}>Sign in with google</button>
-                      <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithFacebook}>Sign in with facebook</button>
+                  <hr/>
+                  
+                    <button className='border-2 py-2 w-56 text-center m-auto flex mt-4 justify-center rounded-full mb-4' onClick={signwithGoogle}>
+                        <img src='/images/google.svg' className='mr-2'/>
+                        Sign in with google
+                    </button>
+                  
+                      {/* <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithFacebook}>Sign in with facebook</button> */}
 
-                  <p>Dont have an account?</p>
-                 <a href='/register'><button>Register</button></a>
+                  <p className='text-center mt-2'>Dont have an account?</p>
+                 <a href='/register'><button className='border-2 py-2 w-56 text-center flex justify-center m-auto text-white mt-4 bg-blue-700 rounded-full '>Register</button></a>
              </div>
           </div>
     )

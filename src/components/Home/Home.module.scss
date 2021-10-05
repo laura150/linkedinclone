@@ -13,7 +13,7 @@
     justify-content: space-between;
     margin: 80px auto;
     width: 1100px;
-    background-color: red;
+   
 
 }
 .middlewing{
@@ -48,9 +48,6 @@
 
 }
 
-@media screen and (min-width: 1500px) {
-    
-}
 @media screen and (max-width: 1148px) {
    .middlewing{
        width: 420px;
@@ -77,11 +74,32 @@
    .middlewing{
        width: 470px;
    }
-
    .mainblock{
-     flex-direction: column;
-     align-items: center;
-    }
+    margin-top: 80px;
+   }
 
 }
    
+@media screen and (max-width: 748px) {
+    .mainblock{
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+       }
+    
+       .middlewing{
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mainblock{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .icon{
+        width: 20px;
+    }
+}

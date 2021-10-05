@@ -54,36 +54,39 @@ const Register = () => {
                <img src='/images/login-logo.svg' width='150' />
            </div>
 
-           <p className='text-center text-3xl text-gray-700  mt-8'>Make the most of you're professional life</p>
+           <p className='text-center sm:text-3xl text-2xl text-gray-700  mt-8'>Make the most of your professional life</p>
 
-           <div className='bg-white w-96 m-auto mt-6 px-8 py-4 '>
+           <div className={`${styles.form} bg-white w-96 m-auto mt-6 px-8 py-4 `}>
                 <form className='text-gray-700' onSubmit={handleSubmit}>
                     <div className=''>
                         <p className='mb-1'> First Name</p>
-                        <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='text' name='firstname' value={firstname} onChange={handleChange} required /> 
+                        <input className=' w-full py-1 border outline-none rounded-md px-1' placeholder='' type='text' name='firstname' value={firstname} onChange={handleChange} required /> 
                     </div>
 
                     <div className=''>
                         <p className='mb-1'>Last name</p>
-                        <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='text' name='lastname' value={lastname} onChange={handleChange} required /> 
+                        <input className=' w-full py-1 border outline-none rounded-md px-1 ' placeholder='' type='text' name='lastname' value={lastname} onChange={handleChange} required /> 
                     </div>
 
                     <div className=''>
                         <p className='mb-1'> Email/Phone Number</p>
-                        <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='email' name='email' value={email} onChange={handleChange} required /> 
+                        <input className=' w-full py-1 border outline-none rounded-md px-1 ' placeholder='' type='email' name='email' value={email} onChange={handleChange} required /> 
                     </div>
                     <div>
                         <p className='mb-1'>Password (6 or more characters)</p>
-                        <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='password' name='password' value={password} onChange={handleChange} required/> 
+                        <input className=' w-full py-1 border outline-none rounded-md px-1' placeholder='' type='password' name='password' value={password} onChange={handleChange} required/> 
                     </div>
 
                     <div>
                         <p className='mb-1'>Confirm Password</p>
-                        <input className=' w-full py-1 border outline-none rounded-md ' placeholder='' type='password' name='confirmpassword' value={confirmpassword} onChange={handleChange} required/> 
+                        <input className=' w-full py-1 border outline-none rounded-md px-1' placeholder='' type='password' name='confirmpassword' value={confirmpassword} onChange={handleChange} required/> 
                     </div>
-                    <button className='border-2 py-2 w-56 text-center m-auto' onClick={signwithFacebook}>Register </button>
-
+                    <button className='border-2 py-2 w-56 text-center flex justify-center m-auto text-white mt-8 bg-blue-700 rounded-full ' onClick={signwithFacebook}>Register </button>
+                  
                 </form>
+
+                <p className="text-center mt-2">Already have an account?</p>
+                <a href='/signin'><button className='border-2 py-2 w-56 text-center flex justify-center m-auto text-white mt-4 bg-blue-700 rounded-full ' onClick={signwithFacebook}>Go to Signin </button></a>
            </div>
         </div>
     )

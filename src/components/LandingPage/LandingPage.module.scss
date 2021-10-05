@@ -4,6 +4,7 @@
     margin-left: 70px;
     margin-right: 70px;
     margin-top: 10px;
+    max-width: 1300px;
 }
 a{
    text-decoration: none; 
@@ -39,11 +40,13 @@ a{
 }
 
 .hero{
+    max-width: 1300px;
+    margin: 70px auto;
     display: grid;
     justify-content: center;
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    margin-top: 70px;
+    
 }
 
 .herotext{
@@ -94,4 +97,52 @@ a{
 
 .google a{
     color: rgb(45, 112, 226);
+}
+
+@media screen and (max-width: 1111px) {
+ .heroimg{
+     width: 400px;
+     margin-top:30px
+ }
+
+ .herotext{
+     
+     font-size: 30px;
+ }
+ 
+}
+
+@media screen and (max-width: 826px) {
+    .hero{
+        grid-template-columns: 1fr ;
+    }
+
+    .herotext{
+        order: 2;
+    }
+
+    .heroimg{
+        margin-top:0px;
+    }
+    .text{
+        text-align: center
+    }
+   
+}
+
+@media screen and (max-width: 438px) {
+    .heroimg{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 466px) {
+    .navimgbox{
+        display: none;
+    
+    }
+
+    .left{
+        width: 100%;
+    }
 }

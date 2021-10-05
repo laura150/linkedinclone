@@ -6,8 +6,9 @@ import styles from './Home.module.scss'
 import InputModal from '../InputModal/InputModal'
 import Leftwing from '../Leftwing/Leftwing'
 import Rightwing from '../Rightwing/Rightwing'
-import {db} from '../../firebase'
+import {db, storage} from '../../firebase'
 import { collection, query, where, orderBy, onSnapshot } from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
 
 
 const Home = () => {
@@ -30,6 +31,12 @@ const Home = () => {
           });
 
           setPosts(arr)
+
+            // const storageRef = ref(storage, 'some-child');
+            // // 'file' comes from the Blob or File API
+            // uploadBytes(storageRef, file).then((snapshot) => {
+            // console.log('Uploaded a blob or file!');
+            // });
         });
         
      
@@ -42,7 +49,7 @@ const Home = () => {
         <div className={`${styles.mainblock} `}>
           <Leftwing/>
 
-            <div className={`${styles.middlewing} bg-green-500 `}>
+            <div className={`${styles.middlewing}  `}>
                 <div className=''>
                     <div className={`${styles.middleblock}`} >
                         <div className='flex items-center ml-4 pt-2'>

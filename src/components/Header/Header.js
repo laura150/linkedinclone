@@ -29,13 +29,14 @@ const Header = () => {
 
     return (
             <div className={`${styles.container}`}>
-                <div className={`${styles.header}  m-auto  flex justify-between pt-2`}>
+                <div className={`${styles.header}  m-auto  flex pt-2`}>
                     <div className={`${styles.leftnav} flex `}>
                         <div className={styles.imgbox}>
                             <a href ='/home'>
                                 <img src='/images/home-logo.svg' className='ml-4'/>
                             </a>
                         </div>
+                        
 
                         <div className={`${styles.searchdiv} bg-blue-100 ml-2 py-1 rounded-md px-2 w-64 flex items-center h-9`}>
                             <img src='/images/search-icon.svg'/>
@@ -46,28 +47,32 @@ const Header = () => {
                     <div className={`${styles.rightnav} flex  text-xs w-1/2 justify-evenly`}>
                             <div className=' flex  items-center flex-col text-gray-600 '>
                                 <img src ='/images/nav-home.svg'/>
-                                <p>Home</p>
+                                <p className={styles.headeroptions}>Home</p>
                             </div>
                             <div className={`${styles.nav} flex  items-center flex-col text-gray-600 `}>
                                 <img src ='/images/nav-network.svg' className={styles.navicon}/>
-                                <p>My Network</p>
+                                <p className={styles.headeroptions}>My Network</p>
                             </div>
                             <div  className='flex  items-center flex-col text-gray-600'>
                                 <img src ='/images/nav-jobs.svg'/>
-                                <p>Jobs</p>
+                                <p className={styles.headeroptions}>Jobs</p>
                             </div>
                             <div  className='flex  items-center flex-col text-gray-600'>
                                 <img src ='/images/nav-messaging.svg'/>
-                                <p>Messaging</p>
+                                <p className={styles.headeroptions}>Messaging</p>
                             </div>
                             <div  className='flex  items-center flex-col text-gray-600'>
                                 <img src ='/images/nav-notifications.svg'/>
-                                <p>Notifications</p>
+                                <p className={styles.headeroptions}>Notifications</p>
                             </div>
                             <div  className={`${styles.me} flex relative  items-center flex-col text-gray-600`}>
-                                <img src ={currentUser.photoURL} width='25'/>
+                            {currentUser? 
+                                <img src ={currentUser.photoURL} width='25'/>:
+                                <img src ='/images/user.svg' width='25'/>
+                                }
+                                   
                                 <div className='flex justify-center'>
-                                    <p>Me</p>
+                                    <p className={styles.headeroptions}>Me</p>
                                     {/* <img src ={currentUser.photoURL} width='20'/> */}
                                 </div>
 
@@ -82,7 +87,7 @@ const Header = () => {
                             <div  className='flex  items-center flex-col text-gray-600'>
                                 <img src ='/images/nav-work.svg'/>
                                 <div className='flex justify-center'>
-                                    <p> Work</p>
+                                    <p className={styles.headeroptions}> Work</p>
                                     <img src ='/images/down-icon.svg' width='20'/>
                                 </div>
                             </div>

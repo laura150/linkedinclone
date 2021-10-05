@@ -3,7 +3,11 @@ import ReactPlayer from 'react-player'
 import styles from './InputModal.module.scss'
 import Post from '../Post/Post'
 import { collection, addDoc, Timestamp } from "firebase/firestore"; 
-import {db} from '../../firebase'
+import {db, storage} from '../../firebase'
+import {useSelector, useDispatch} from 'react-redux'
+// import { ref, uploadBytes, storageRef } from "firebase/storage";;
+
+
 const InputModal = ({modal , setModal}) => {
     const [change , setChange] = useState(false)
     const [type , setType] = useState('')
@@ -11,7 +15,7 @@ const InputModal = ({modal , setModal}) => {
     const [videolink, setvideolink] = useState('')
     const [visible, setvisible] = useState(false)
    
-
+    const {currentUser} = useSelector((state)=> state.user)
 
 console.log(modal)
     const off =(e)=>{
@@ -37,21 +41,34 @@ console.log(modal)
          setshowimage(image)
       }
 
+    //   const storageRef = ref(storage, 'plus.png');
+
       const handlepost = async()=>{
         setModal(false)
           console.log('clicked')
         try {
             const docRef = await addDoc(collection(db, "posts"), {
-                name: "Laura",
+                name: 'bimbo',
                 description: type,
-                timestamp: Timestamp.fromDate(new Date())
+                timestamp: Timestamp.fromDate(new Date()),
+                // image: showimage,
+                // video: videolink
+
             });
             console.log("Document written with ID: ", docRef.id);
             } catch (e) {
             console.error("Error adding document: ", e);
             }
+
+        setType('')
+
+        // uploadBytes(storageRef, 'plus.png').then((snapshot) => {
+        //     console.log('Uploaded a blob or file!');
+        // }) 
+        
       }
 
+    
     return (
         <>
        {
