@@ -8,7 +8,9 @@ import Leftwing from '../Leftwing/Leftwing'
 import Rightwing from '../Rightwing/Rightwing'
 import {db, storage} from '../../firebase'
 import { collection, query, where, orderBy, onSnapshot } from "firebase/firestore";
+import {useSelector, useDispatch} from 'react-redux'
 import { ref, uploadBytes } from "firebase/storage";
+
 
 
 const Home = () => {
@@ -16,7 +18,7 @@ const Home = () => {
     const [showimage, setshowimage] = useState('')
     const [posts, setPosts] = useState([])
     
-
+    const {currentUser} = useSelector((state)=> state.user)
     const handleModal=()=>{
         setModal(true)
     }
@@ -54,7 +56,10 @@ const Home = () => {
                     <div className={`${styles.middleblock}`} >
                         <div className='flex items-center ml-4 pt-2'>
                             <div className={styles.imgbox}>
-                                <img src='/images/girlie.jpg' width='50'/>
+                            {currentUser? 
+                                <img src ={currentUser.photoURL} width='25'/>:
+                                <img src ='/images/user.svg' width='25'/>
+                             }
                             </div>
                             <div className = {`${styles.btn} w-4/5 rounded-full py-1 border h-14 ml-2 flex items-center pl-4 cursor-pointer `} onClick={handleModal}>Start a Post</div>
                             <InputModal modal={modal}  setModal={setModal} />

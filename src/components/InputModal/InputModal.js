@@ -48,7 +48,7 @@ console.log(modal)
           console.log('clicked')
         try {
             const docRef = await addDoc(collection(db, "posts"), {
-                name: 'bimbo',
+                name:currentUser.displayName,
                 description: type,
                 timestamp: Timestamp.fromDate(new Date()),
                 // image: showimage,
@@ -62,11 +62,11 @@ console.log(modal)
 
         setType('')
 
-        const storageRef = ref(storage, URL.createObjectURL(showimage));
+        // const storageRef = ref(storage, URL.createObjectURL(showimage));
 
-        uploadBytes(storageRef, URL.createObjectURL(showimage)).then((snapshot) => {
-            console.log('Uploaded a blob or file!');
-        }) 
+        // uploadBytes(storageRef, URL.createObjectURL(showimage)).then((snapshot) => {
+        //     console.log('Uploaded a blob or file!');
+        // }) 
         
       }
 
@@ -88,7 +88,10 @@ console.log(modal)
                 <hr></hr>
 
                 <div className='flex mt-2'>
-                      <img src ='/images/user.svg' width='60' className='rounded-full' />
+                {currentUser? 
+                <img src ={currentUser.photoURL} width='50' className='rounded-full'/>:
+                <img src ='/images/user.svg' width='50'  className='rounded-full'/>
+            }
                 </div>
 
                 <form>

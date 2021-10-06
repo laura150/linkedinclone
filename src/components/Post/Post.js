@@ -2,6 +2,8 @@ import React from 'react'
 import {useState , useEffect} from 'react'
 import {db} from '../../firebase'
 import styles from './Post.module.scss'
+import {useSelector, useDispatch} from 'react-redux'
+
 // import { collection, query, where, onSnapshot } from "firebase/firestore";
 
 
@@ -15,11 +17,14 @@ const Post = ({post}) => {
     }
 
 
-
+    const {currentUser} = useSelector((state)=> state.user)
     return (
         <div className='bg-white rounded-md py-4 px-2  mt-4'>
             <div className='flex mb-3'>
-                <img src='/images/user.svg' width='50'/>
+            {currentUser? 
+                <img src ={currentUser.photoURL} width='25'/>:
+                <img src ='/images/user.svg' width='25'/>
+            }
 
                 <div className='ml-2 text-sm'>
                     <p>{post.name}</p>
