@@ -5,7 +5,7 @@ import Post from '../Post/Post'
 import { collection, addDoc, Timestamp } from "firebase/firestore"; 
 import {db, storage} from '../../firebase'
 import {useSelector, useDispatch} from 'react-redux'
-// import { ref, uploadBytes, storageRef } from "firebase/storage";;
+ import { ref, uploadBytes, storageRef } from "firebase/storage";;
 
 
 const InputModal = ({modal , setModal}) => {
@@ -41,7 +41,7 @@ console.log(modal)
          setshowimage(image)
       }
 
-    //   const storageRef = ref(storage, 'plus.png');
+      
 
       const handlepost = async()=>{
         setModal(false)
@@ -62,9 +62,11 @@ console.log(modal)
 
         setType('')
 
-        // uploadBytes(storageRef, 'plus.png').then((snapshot) => {
-        //     console.log('Uploaded a blob or file!');
-        // }) 
+        const storageRef = ref(storage, URL.createObjectURL(showimage));
+
+        uploadBytes(storageRef, URL.createObjectURL(showimage)).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+        }) 
         
       }
 

@@ -11,10 +11,12 @@ import Network from "./components/Network/Network";
 import Register from "./components/Register/Register";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Signin from "./components/Signin/Signin";
+import ProtectedRoutes from './ProtectedRoutes'
+import {useSelector} from 'react-redux'
 
 
 function App() {
-
+  const {currentUser} = useSelector((state)=> state.user)
   useEffect(() => {
   
     Aos.init({duration:1500})
@@ -40,11 +42,7 @@ function App() {
          <Network/>
           </Route>
 
-          <Route exact path ='/home'>
-          <Header/>
-          <Home/>
-          </Route>
-
+          <ProtectedRoutes exact path ='/home' firstcomponent={Header} component={Home}  isAuth={currentUser}></ProtectedRoutes>
 
         </Switch>
       </Router>
