@@ -93,13 +93,23 @@
  
  }
  @media screen and (max-width: 856px) {
-    .search{
-        display: block;
-        width: 30px;
-    }
+    // .search{
+    //     display: block;
+    //     width: 30px;
+    // }
 
-    .searchdiv{
-        display: none;
-    }
+    // .searchdiv{
+    //     display: none;
+    // }
+ }
+
+ @media screen and (max-width: 826px) {
+   .header{
+       flex-direction: column;
+   }
+
+   .rightnav{
+       margin-top: 20px;
+   }
  }
  

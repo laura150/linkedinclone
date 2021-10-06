@@ -84,14 +84,14 @@ const Header = () => {
 
                             <div  className={styles.line}></div>
 
-                            <div  className='flex  items-center flex-col text-gray-600'>
+                            <div  className={`${styles.work} flex  items-center flex-col text-gray-600`}>
                                 <img src ='/images/nav-work.svg'/>
                                 <div className='flex justify-center'>
                                     <p className={styles.headeroptions}> Work</p>
                                     <img src ='/images/down-icon.svg' width='20'/>
                                 </div>
                             </div>
-                            <div  className='w-20 text-center '>
+                            <div  className={`${styles.premium}'w-20 text-center `}>
                                 <a href='#' className='no-underline'><p> Try Premium for Free</p></a>
                             </div>
                     </div>
